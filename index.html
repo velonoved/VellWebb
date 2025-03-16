@@ -45,6 +45,27 @@
             text-decoration: none;
             padding: 5px 0;
         }
+
+        .register-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .register-button:hover {
+            transform: scale(1.1); /* Збільшення кнопки при наведенні */
+            background-color: #0056b3;
+        }
     </style>
     <script>
         function toggleMenu() {
@@ -79,8 +100,11 @@
         <!-- Картка інформації -->
         <div class="info-card">
             <h2>Інформація про сайт</h2>
-            <p>Це чудовий сайт для тестування різних функцій та елементів HTML, CSS та JavaScript.</p>
+            <p>VellWebb.</p>
         </div>
+
+        <!-- Кнопка для переходу на сторінку реєстрації -->
+        <a href="register.html" class="register-button">Перейти до реєстрації</a>
     </div>
 </body>
 </html>
