@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Анімований VellWebb</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+    
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #111;
+                overflow: hidden;
+            }
+    
+            .header {
+                font-size: 60px;
+                font-weight: bold;
+                color: #ff8000;
+                text-shadow: 0 0 20px #ff8000, 0 0 30px #ffcc00;
+                animation: wave 3s infinite ease-in-out;
+            }
+    
+            @keyframes wave {
+                0%, 100% {
+                    transform: translateY(0); /* Початкова і кінцева позиція */
+                }
+                25% {
+                    transform: translateY(-15px); /* Піднімається вгору */
+                }
+                50% {
+                    transform: translateY(10px); /* Опускається вниз */
+                }
+                75% {
+                    transform: translateY(-10px); /* Знову вгору */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">VellWebb</div>
+    </body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {    
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ring {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ring i {
+            position: absolute;
+            inset: 0;
+            border: 4px solid #ff8000;
+            transition: 0.5s;
+            filter: drop-shadow(0 0 15px #ff8000);
+        }
+        .ring i:nth-child(1) {
+            border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+            animation: animate 6s linear infinite;
+        }
+        .ring i:nth-child(2) {
+            border-radius: 40% 45% 55% 60%/40% 60% 65% 35%;
+            animation: animate 4s linear infinite;
+        }
+        .ring i:nth-child(3) {
+            border-radius: 40% 45% 55% 60%/40% 60% 65% 35%;
+            animation: animate2 10s linear infinite;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes animate2 {
+            0% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .header {
+            position: absolute;
+            top: 30px;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff8000;
+            text-shadow: 0 0 20px #ff8000, 0 0 30px #ffcc00;
+        }
+
+        .registration-container {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(255, 128, 0, 0.3);
+            backdrop-filter: blur(10px);
+            width: 400px;
+            z-index: 10;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ff8000;
+            border-radius: 10px;
+            font-size: 16px;
+            background: transparent;
+            color: white;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        button {
+            padding: 12px;
+            background: linear-gradient(45deg, #ff8000, #ffcc00);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #ffcc00, #ff8000);
+        }
+
+        button#login-link {
+            width: 100%; /* Кнопка на всю ширину */
+            margin-top: 10px; /* Відступ зверху */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .link {
+            color: #ff8000;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ring">
+    <i></i>
+    <i></i>
+    <i></i>
+</div>
+
+<div class="header">VellWebb</div>
+
+<div class="registration-container" id="registration-container">
+    <form id="registration-form">
+        <h2>Реєстрація</h2>
+        <label for="username">Ім'я користувача</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Електронна пошта</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Підтвердження пароля</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <button type="submit">Зареєструватися</button>
+    </form>
+    <button id="login-link">Увійти</button>
+</div>
+
+<div class="registration-container hidden" id="login-container">
+    <form id="login-form">
+        <h2>Увійти</h2>
+        <label for="login-email">Електронна пошта</label>
+        <input type="email" id="login-email" name="login-email" required>
+
+        <label for="login-password">Пароль</label>
+        <input type="password" id="login-password" name="login-password" required>
+
+        <button type="submit">Увійти</button>
+    </form>
+    <a href="#" id="register-link" class="link">Немає аккаунту? Зареєструватися</a>
+</div>
+
+<script>
+    document.getElementById('login-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('registration-container').classList.add('hidden');
+        document.getElementById('login-container').classList.remove('hidden');
+    });
+
+    document.getElementById('register-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('registration-container').classList.remove('hidden');
+    });
+
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (password !== confirmPassword) {
+            alert("Паролі не співпадають. Будь ласка, спробуйте ще раз.");
+        } else {
+            window.location.href = "index.html";
+        }
+    });
+
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        window.location.href = "index.html";
+    });
+</script>
+
+</body>
+</html>

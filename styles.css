@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(45deg, #ff9100, #ff6200); /* Оранжевий градієнт */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+    background: linear-gradient(45deg, #4a4a4a, #2f2f2f);
+    color: white;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 2px 2px 10px #ffbf40; /* Неоновий ефект */
+}
+
+.cool-button {
+    margin: 10px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6200, #ff9100);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    box-shadow: 0px 4px 15px rgba(255, 165, 0, 0.7); /* Неонове світіння */
+}
+
+.cool-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 20px rgba(255, 195, 0, 0.8); /* Посилення неону */
+}
+
+.cool-button:active {
+    transform: scale(0.95);
+}
+
+.input-field {
+    margin: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #ff9100; /* Оранжевий обводок */
+    outline: none;
+    width: 250px;
+    background-color: rgba(255, 250, 240, 0.9);
+}
+
+.input-field:focus {
+    border-color: #ffbf40; /* Неонова жовтогаряча рамка */
+    box-shadow: 0px 0px 8px rgba(255, 195, 0, 0.7);
+}
+
+.info-card {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 145, 0, 0.9); /* Прозорий оранжевий */
+    border-radius: 10px;
+    border: 2px solid #ffbf40; /* Неон */
+    box-shadow: 0px 0px 20px rgba(255, 165, 0, 0.8); /* Неоновий ефект */
+    color: white;
+}
+
+.theme-toggle {
+    background: linear-gradient(45deg, #ffbf40, #ff9100);
+    box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.6);
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 10px;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+
+    .info-card {
+        width: 100%;
+    }
+}

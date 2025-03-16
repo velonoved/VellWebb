@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><b><i>Контакти</i></b></title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Загальні стилі для сторінки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .contact-info {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .social-media a {
+            font-size: 40px;
+            color: #333;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #4CAF50;
+            transform: scale(1.2);
+        }
+
+        .contact-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .input-field:focus {
+            transform: scale(1.05);
+            border-color: #4CAF50;
+        }
+
+        .cool-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cool-button:hover {
+            background-color: #388e3c;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Навігаційна кнопка */
+        .nav-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            z-index: 110;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 50px;
+            left: -250px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            width: 200px;
+            z-index: 100;
+        }
+
+        .nav-menu.active {
+            left: 15px;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка для відкриття меню -->
+    <button class="nav-button" onclick="toggleMenu()">☰ Меню</button>
+
+    <!-- Виїжджаюче меню -->
+    <div class="nav-menu" id="nav-menu">
+        <a href="index.html">Головна</a>
+        <a href="about.html">Про нас</a>
+        <a href="contact.html" class="active">Контакти</a>
+    </div>
+
+    <div class="content">
+        <h1 class="title">Контакти</h1>
+
+        <!-- Контактна інформація -->
+        <section class="contact-info">
+            <h2>Зв'язатись з нами</h2>
+            <p>Ми завжди відкриті до співпраці і готові відповісти на ваші питання!</p>
+
+            <div class="contact-details">
+                <p><strong>Адреса:</strong> вул. Байдена, 123, Київ, Україна</p>
+                <p><strong>Телефон:</strong> +38 (044) 123-45-67</p>
+                <p><strong>Email:</strong> info@vellonov.com</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма для зворотного зв'язку -->
+        <section class="contact-form">
+            <h2>Напишіть нам</h2>
+            <form action="mailto:info@vellonov.com" method="POST" enctype="text/plain">
+                <input type="text" name="name" placeholder="Ваше ім'я" class="input-field" required>
+                <input type="email" name="email" placeholder="Ваш email" class="input-field" required>
+                <textarea name="message" placeholder="Ваше повідомлення" class="input-field" required></textarea>
+                <button type="submit" class="cool-button">Відправити</button>
+            </form>
+        </section>
+
+        <!-- Мапа -->
+        <section class="map">
+            <h1>Наша локація</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.535153553577!2d30.5170048!3d50.4500381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc71716033d7%3A0x8b7b6be0e319bfe1!2z0JbQsNC90YvQuS3Q!5e0!3m2!1suk!2sua!4v1679053374001!5m2!1suk!2sua"
+                width="800"
+                height="600"
+                style="border:0; border-radius: 10px;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

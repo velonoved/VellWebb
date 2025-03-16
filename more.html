@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детальніше</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Основні стилі */
+        body {
+            background: linear-gradient(45deg, #ff9100, #ff6200); /* Оранжевий градієнт */
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-theme {
+            background: linear-gradient(45deg, #2f2f2f, #4a4a4a); /* Темна тема */
+            color: white;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .title {
+            font-size: 3em;
+            color: white;
+            text-shadow: 0 0 10px #ffd700, 0 0 20px #ffbf40; /* Неоновий ефект */
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .info-card {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 145, 0, 0.9); /* Прозорий оранжевий */
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 0 15px #ffd700, 0 0 30px #ffbf40; /* Неон */
+        }
+
+        body.dark-theme .info-card {
+            background-color: rgba(60, 60, 60, 0.9); /* Темний режим для карток */
+            box-shadow: 0 0 15px #444, 0 0 30px #666;
+        }
+
+        iframe {
+            max-width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Стиль для відео */
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            margin: 0;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #4b5b64, #2e3d47);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ffd700, 0 0 20px #ffbf40;
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 110;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ffd700, 0 0 40px #ffbf40;
+        }
+
+        .theme-toggle.animate {
+            animation: toggleThemeAnimation 0.6s ease-in-out;
+        }
+
+        .nav-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #000000; /* Чорний колір */
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            z-index: 110;
+            box-shadow: 0 0 10px #ffd700, 0 0 20px #ffbf40;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #333333; /* Темно-сірий при наведенні */
+            box-shadow: 0 0 15px #ffd700, 0 0 30px #ffbf40;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 50px;
+            left: -250px;
+            background: rgba(61, 61, 61, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            display: block;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity 0.3s, transform 0.3s;
+            width: 220px;
+            z-index: 100;
+            box-shadow: 0 0 15px #1f1f1f, 0 0 25px #ffbf40;
+        }
+
+        .nav-menu.active {
+            left: 15px;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 1.2em;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: #ffd700; /* Яскраве підсвічування */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes toggleThemeAnimation {
+            0% {
+                transform: rotate(0);
+                opacity: 1;
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: rotate(360deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Кнопка для відкриття меню -->
+    <button class="nav-button" onclick="toggleMenu()">☰ Меню</button>
+
+    <!-- Кнопка перемикання теми -->
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Перемкнути тему</button>
+
+    <!-- Виїжджаюче меню -->
+    <div class="nav-menu" id="nav-menu">
+        <a href="index.html">Головна</a>
+        <a href="about.html">Про нас</a>
+        <a href="contact.html">Контакти</a>
+    </div>
+    
+    <div class="content">
+        <h1 class="title">Детальніше</h1>
+
+        <!-- Відео 1 -->
+        <div class="info-card">
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/WZFIo4yj17c" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Відео 2 -->
+        <div class="info-card">
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/3YTohytF9oE" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Відео 3 -->
+        <div class="info-card">
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/6vP4jRJ5EQg" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Відео 4 -->
+        <div class="info-card">
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/29XymHesxa0" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Відео 5 -->
+        <div class="info-card">
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/k-ZXEDMEaew" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <script>
+        // Функція для перемикання теми
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('.theme-toggle');
+
+            body.classList.toggle('dark-theme');
+            button.classList.add('animate');
+            setTimeout(() => button.classList.remove('animate'), 600);
+        }
+
+        // Функція для перемикання меню
+        function toggleMenu() {
+            const menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

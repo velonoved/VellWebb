@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .nav-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 50px;
+            left: -250px; /* Початкове приховане положення */
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            width: 200px;
+        }
+
+        .nav-menu.active {
+            left: 15px;  /* Позиція після активування */
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");  // Перемикає клас активності
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle("dark-theme");
+        }
+    </script>
+</head>
+<body>
+    <button class="nav-button" onclick="toggleMenu()">☰ Меню</button>
+    <div class="nav-menu" id="nav-menu">
+        <a href="index.html">Головна</a>
+        <a href="about.html">Про нас</a>
+        <a href="contact.html">Контакти</a>
+    </div>
+
+    <div class="content">
+        <h1 class="title"><b><i>Головна Сторінка</i></b></h1>
+        <p><b><i>Vellonov</i></b></p>
+
+        <!-- Кнопка "Click Me!" і смайлик -->
+        <button class="cool-button">Click Me! 😄</button>
+
+        <!-- Перемикач теми -->
+        <button class="cool-button theme-toggle" onclick="toggleTheme()">🌙 Перемкнути тему</button>
+
+        <!-- Картка інформації -->
+        <div class="info-card">
+            <h2>Інформація про сайт</h2>
+            <p>Це чудовий сайт для тестування різних функцій та елементів HTML, CSS та JavaScript.</p>
+        </div>
+    </div>
+</body>
+</html>
